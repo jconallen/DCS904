@@ -1,0 +1,7 @@
+loadc 5
+loadc 1
+sub
+dup
+jumpz 6
+jump 1
+halt
