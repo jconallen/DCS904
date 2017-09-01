@@ -1,0 +1,15 @@
+       loadc 5
+       jumpi 0
+
+       loadc 11
+       print
+       jump done
+
+       loadc 22
+       print
+       jump done
+
+       loadc 33
+       print
+
+done: halt
