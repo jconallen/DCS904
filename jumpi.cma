@@ -1,5 +1,5 @@
-       loadc 2
-       jumpi 3
+       loadc 5
+       jumpi 0
 
        loadc 11
        print
