@@ -7,13 +7,13 @@
 ; 
 ; address environment: p = { n->1, j->2, x-> 3, y->4, z->5}
 ;
-; to test we initialize the variables a=2, n=4.  This will 
+; to test we initialize the variables x=2, n=4.  This will 
 ; produce a value z = 16
 ;
 ; #MEMSET n: S[1]=4
 ; #MEMSET x: S[3]=2
 ;
-; to make testing easier we will also inialize the other variables
+; to make testing easier we will also initialize the other variables
 ; with 0's so that they will automatically set the note field in the
 ; stack view of the virtual machine UI.  This initialization is not
 ; required for the computation.
