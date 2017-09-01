@@ -48,7 +48,7 @@ w2:     loadc 2    ; put constant 2 on stack
         loadc 2    ; put constant 2 on stack
         mul        ; j*2
         storea 2   ; j = j*2
-        jump w2    ; go back to begining of this inner loop
+        jump w2    ; go back to beginning of this inner loop
 A:      loada 5    ; put z on top
         loada 4    ; put y on top
         mul        ; y*z
