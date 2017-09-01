@@ -20,10 +20,10 @@
 ;
        alloc 6      ; push the stack up to accommodate  
                     ; the assigned memory
-loop:  loada x      ;
+while: loada x      ;
        loada y      ; 
        gr           ; x>y
-       jumpz end    ; while( x>y ) execute next, otherwise goto end
+       jumpz wend   ; while( x>y ) execute next, otherwise goto end
        loadc 2      ;
        loada y      ;
        mul          ;
@@ -34,10 +34,30 @@ loop:  loada x      ;
        loada x      ;
        add          ;
        storea y     ; y = y+x
-       jump loop    ; back to top of loop
+       jump while   ; back to top of loop
 else:  loada x      ; 
        loada y      ;
        sub          ;
        storea x     ; x = x-y
        jump loop    ; back to top of loop
-end:   halt         
+wend:  loadc 0      ; starting for loop, put constant 0 on stack
+       storea x     ; x = 0;
+for:   loada x      ; put x on stack
+       loadc 42     ; put 42 on stack
+       le           ; compute x<42
+       jumpz end    ; if false jump to end of for loop
+       loada y      ; y on stack
+       loada x      ; x on stack
+       neq          ; compute !(x==y)
+       jumpz fend   ; if not zero jump to end of for
+       loadc 1      ;
+       loada z      ;
+       add          ;
+       storea z     ;
+fend:  loada x      ; preform end of loop increment, x on stack
+       loada z      ; z on stack
+       add          ; x+z
+       storea x     ; x = x+z     
+       jump for     ; 
+end:   halt
+       
