@@ -13,7 +13,7 @@
 ;
 
         alloc 1    ; allocate space for the variable x
-        loadc 30   ; put the constant 10 on the stack
+        loadc 30   ; put the constant 30 on the stack
         storea 0   ; stores the value at top of stack in variable x (addr 0)
         alloc 1    ; space for variable y
         loadc 20   ; put constant 20 on stack
