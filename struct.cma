@@ -1,0 +1,26 @@
+;  Implementation of simple structure
+;
+; typedef struct {
+;   int x;
+;   int y;
+; } Point;
+; 
+; Point p = { 100, 200 };
+; printf( "(%d,%d)", p.x. p.y );
+; 
+; 
+alloc 2    ;  allocate space for p.  sizeof( Point )
+loadc 100  ;  put 100 on top of stack
+storea 0   ;  store it via absolute addr to p.x
+loadc 200  ;  put 200 on stack
+storea 1   ; store it in global var p.y
+loadc '('  ; put left bracet character on stack
+print      ; print it
+loada 0    ; put p.x on top of stack
+print      ; print it
+loadc ','  ; put comma on stack
+print      ; print it
+loada 1    ; put p.y on top of stack
+print      ; print it
+loadc ')'  ; put closing bracket on stack
+print      ; print it
