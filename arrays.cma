@@ -24,3 +24,4 @@ loadc 4   ; put 4 on stack as index into array
 add       ; compute offset into array in heap
 load      ; load a[4] to top of stack
 print     ; print to output 
+halt
