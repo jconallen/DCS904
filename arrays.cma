@@ -1,0 +1,26 @@
+; Implements the C snippet:
+;
+; int[] x = { 0, 1, 1, 2, 3, 5, 8 };
+; int* a = malloc (7)
+; memcpy(a, x, 7);
+; printf("%d", a[4] );
+;
+;
+alloc 1   ; allocate space for int* a;
+loadc 0   ; build int[] x on top of stack
+loadc 1   ; load constants on top of stack 
+loadc 1   ; to initialize the array on the stack
+loadc 2
+loadc 3
+loadc 5
+loadc 8   ; this is the last value in the 
+loadc 7   ; allocate 7 space for this array
+new       ; int* a = malloc(7)
+storea 0   ; copy addr to local var a
+loada 0   ; put back on top of stack for memcpy
+store 7   ; memcpy( a, x, 7 );
+loada 0   ; put a back on top of stack
+loadc 4   ; put 4 on stack as index into array
+add       ; compute offset into array in heap
+load      ; load a[4] to top of stack
+print     ; print to output 
